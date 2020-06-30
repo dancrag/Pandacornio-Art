@@ -12,15 +12,6 @@ body{
     margin: 2em;
 }
 
-.fas{
-    color: black;
-}
-
-.titulo{
-    font-family: 'Pacifico', cursive;
-    font-size: 2em;
-}
-
 .contenido{
     padding: 1em;
 }
@@ -37,25 +28,6 @@ i.comment:hover{
     color: rgb(255, 255, 255);
 }
 
-.menu{
-    overflow: hidden;
-    padding: 0.1em;
-    background: #ee9ca7;  /* fallback for old browsers */
-    background: -webkit-linear-gradient(to right, #ffdde1, #ee9ca7);  /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(to right, #ffdde1, #ee9ca7); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-    list-style-type: none;
-}
-
-.items-right{
-    text-align: right;
-}
-
-.menu-item{
-    padding: 1em 1em;
-    display: inline;
-    color: black;
-}
-
 a:visited{
     color: black;
 }
@@ -70,62 +42,44 @@ a:link{
 }
 
 .card{
-    display: inline;
     float: left;
     position: relative;
     margin: 1em;
-    -ms-flex-direction: column;
-    flex-direction: column;
     width: 20%;
     height: 400px;
-    min-width: 0;
-    word-wrap: break-word;
+    min-width: 250px;
     background: none;
-    background-clip: border-box;
-    border: 1px solid rgba(0, 0, 0, 0.125);
     border-radius: 0.25rem;
     -webkit-box-shadow: 4px 7px 13px -5px rgba(0,0,0,0.89);
     -moz-box-shadow: 4px 7px 13px -5px rgba(0,0,0,0.89);
     box-shadow: 4px 7px 13px -5px rgba(0,0,0,0.89);
-}
-
-.card-text{
-    padding: 0.5em;
-    text-align: justify;
+    text-align: center;
 }
 
 .card-img{
     height: auto;
     width: 100%;
     margin-bottom: 0.5em;
-    border-radius: 0.25rem 0.25rem;
 }
 
-.card-body{
-    -ms-flex: 1 1 auto;
-    flex: 1 1 auto;
-    min-height: 1px;
-    padding: 2px;
-}
-
-.menu-opc{
+.card-footer{
+    background-color: #1D0C16;
+    color: white;
     padding: 0;
-    text-align: center;
+    border-style: none;
 }
 
-.opc-card{
-    color: black;
-    display: inline;
-    padding: 0.5em;
-    margin-left: 0.25em;
-    margin-right: 0.25em;
-    border-radius: 90px;
-    background: #ee9ca7;  /* fallback for old browsers */
-    background: -webkit-linear-gradient(to right, #ffdde1, #ee9ca7);  /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(to right, #ffdde1, #ee9ca7); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-    -webkit-box-shadow: 4px 7px 13px -5px rgba(0,0,0,0.89);
-    -moz-box-shadow: 4px 7px 13px -5px rgba(0,0,0,0.89);
-    box-shadow: 4px 7px 13px -5px rgba(0,0,0,0.89);
+.add-cart{
+    width: 100%;
+    height: auto;
+    color: white;
+    background-color: #0072F5;
+    border: none;
+    padding: 1rem;
+}
+
+.add-button:hover{
+    opacity: 0.7;
 }
 
 #about-head{
