@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router()
 
 //routes
-router.get('/index', (req, res) => {
+router.get('/', (req, res) => {
   res.render('index.html', {title: 'First website', subtitle: 'Pandacornio'});
 });
 
