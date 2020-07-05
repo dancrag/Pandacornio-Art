@@ -6,11 +6,11 @@ const Product = require('../models/Product');
 
 //routes
 router.get('/', (req, res) => {
-  res.render('index', {title: 'Home', subtitle: 'Pandacornio.Art'});
+  res.render('index');
 });
 
 router.get('/contact', (req, res) => {
-  res.render('contact', {title: 'Contact'});
+  res.render('contact');
 });
 
 router.get('/products', async (req, res) => {
