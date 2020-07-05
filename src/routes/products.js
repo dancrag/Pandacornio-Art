@@ -3,13 +3,13 @@ const { route } = require('.');
 const router = express.Router();
 
 const Product = require('../models/Product');
+const { isAuthenticated } = require('../helpers/auth')
 
-router.get('/products/add-product', (req, res) => {
+router.get('/products/add-product', isAuthenticated, (req, res) => {
     res.render('products/new-product');
 });
 
-router.post('/products/new-product', async (req, res) => {
-    console.log(req.body);
+router.post('/products/new-product', isAuthenticated, async (req, res) => {
     const {name, price, description} = req.body;
     const errors = [];
     
@@ -31,8 +31,27 @@ router.post('/products/new-product', async (req, res) => {
     } else {
         const newProduct = new Product({name, price, description});
         await newProduct.save();
+        req.flash('success_msg', '¡El producto se agregó correctamente!');
         res.redirect('/products')
     }
+});
+
+router.get('/products/edit-product/:id', isAuthenticated, async (req, res) => {
+    const product = await Product.findById(req.params.id);
+    res.render('products/edit-product', {product});
+});
+
+router.put('/products/edit-product-done/:id', isAuthenticated, async(req, res) => {
+    const {name, price, description} = req.body;
+    await Product.findByIdAndUpdate(req.params.id, {name, price, description});
+    req.flash('success_msg', '¡Se actualizó correctamente el producto!');
+    res.redirect('/products');
+});
+
+router.delete('/products/delete/:id', isAuthenticated, async (req,res) => {
+    await Product.findByIdAndDelete(req.params.id);
+    req.flash('success_msg', 'El producto se eliminó correctamente');
+    res.redirect('/products');
 });
 
 module.exports = router;

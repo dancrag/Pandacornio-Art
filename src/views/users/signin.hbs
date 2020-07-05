@@ -2,24 +2,19 @@
     <div class="col-6 align-self-center">
     <div class="card animate__animated animate__slideInDown">
     <div class="card-header">
-        Log In
+        Iniciar Sesión
     </div>
     <div class="card-body">
-        <form>
+        <form action="/users/signin" method="POST">
         <div class="form-group">
-            <label for="exampleInputEmail1">Email address</label>
-            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
-            <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+            <label for="exampleInputEmail1"><i class="fas fa-envelope"></i> Correo Electrónico</label>
+            <input name="email" type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Ingresar Correo" autofocus>
         </div>
         <div class="form-group">
-            <label for="exampleInputPassword1">Password</label>
-            <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+            <label for="exampleInputPassword1"><i class="fas fa-key"></i> Contraseña</label>
+            <input name="password" type="password" class="form-control" id="exampleInputPassword1" placeholder="Ingresar Contraseña">
         </div>
-        <div class="form-check">
-            <input type="checkbox" class="form-check-input" id="exampleCheck1">
-            <label class="form-check-label" for="exampleCheck1">Check me out</label>
-        </div>
-        <button type="submit" class="btn btn-primary">Submit</button>
+        <button type="submit" class="btn btn-primary">Ingresar</button>
         </form>
     </div>
     </div>
