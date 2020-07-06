@@ -1,6 +1,8 @@
 const mongoose = require('mongoose')
 
-mongoose.connect('mongodb+srv://dancrag1:eFk7IKO3JaEGLMkw@pandacluster.yceml.mongodb.net/pandacluster?retryWrites=true&w=majority', {
+//mongodb+srv://dancrag1:eFk7IKO3JaEGLMkw@pandacluster.yceml.mongodb.net/pandacluster?retryWrites=true&w=majority
+
+mongoose.connect('mongodb://localhost:27017/pandacornio_db_test', {
     useCreateIndex: true,
     useNewUrlParser: true,
     useFindAndModify: false,

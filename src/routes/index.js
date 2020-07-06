@@ -14,7 +14,7 @@ router.get('/contact', (req, res) => {
 });
 
 router.get('/products', async (req, res) => {
-  const products = await Product.find().sort({name: 'asc'});
+  const products = await Product.find().sort({ name: 'asc' });
   res.render('products/products', {products});
 });
 

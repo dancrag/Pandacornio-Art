@@ -1,41 +1,63 @@
 {{#if user}}
 <div class="row row-cols-1 row-cols-md-3">
-{{#each products}}
-<div class="col mb-4">
-<div class="card animate__animated animate__fadeInLeft" >
-  <img src="img/art-1.jpg" class="card-img-top" alt="...">
-  <div class="card-body">
-    <h5 class="card-title d-flex justify-content-between align-items-center"> {{name}} <a
-        href="/products/edit-product/{{_id}}"><i class="fas fa-edit"></i></a> </h5>
-    <p class="card-text"> {{description}} </p>
+  {{#each products}}
+  <div class="col mb-4">
+    <div class="card animate__animated animate__fadeInLeft">
+      <img src="img/art-1.jpg" class="card-img-top" alt="...">
+      <div class="card-body">
+        <h5 class="card-title d-flex justify-content-between align-items-center"> {{name}} <a
+            href="/products/edit-product/{{_id}}"><i class="fas fa-edit"></i></a> </h5>
+        <p class="card-text"> {{description}} </p>
+      </div>
+      <div class="card-footer">
+        <p><i class="fas fa-dollar-sign"></i> {{price}}</p>
+        <form action="/products/delete/{{_id}}?_method=DELETE" method="POST">
+          <input type="hidden" name="_method" value="DELETE">
+          <button class="btn btn-danger btn-block btn-sm" type="submit">
+            Delete
+          </button>
+        </form>
+      </div>
+    </div>
   </div>
-  <div class="card-footer">
-    <p><i class="fas fa-dollar-sign"></i> {{price}}</p>
-    <form action="/products/delete/{{_id}}?_method=DELETE" method="POST">
-      <input type="hidden" name="_method" value="DELETE">
-      <button class="btn btn-danger btn-block btn-sm" type="submit">
-        Delete
-      </button>
-    </form>
+  {{else}}
+  <div class="card" style="max-width: 18rem;">
+    <div class="card-header">Te hacen falta productos <i class="far fa-sad-tear"></i></div>
+    <div class="card-body">
+      <a href="/products/add-product" class="btn btn-success btn-block">¡Crea uno!</a>
+    </div>
   </div>
-</div>
+  {{/each}}
 </div>
 {{else}}
-<div class="card" style="max-width: 18rem;">
-  <div class="card-header">Te hacen falta productos <i class="far fa-sad-tear"></i></div>
-  <div class="card-body">
-    <a href="/products/add-product" class="btn btn-success btn-block">¡Crea uno!</a>
+<div class="row row-cols-1 row-cols-md-3">
+  {{#each products}}
+  <div class="col mb-4">
+    <div class="card animate__animated animate__fadeInLeft">
+      <img src="img/art-1.jpg" class="card-img-top" alt="...">
+      <div class="card-body">
+        <h5 class="card-title d-flex justify-content-between align-items-center"> {{name}}</h5>
+        <p class="card-text"> {{description}} </p>
+      </div>
+      <div class="card-footer">
+        <p><i class="fas fa-dollar-sign"></i> {{price}}</p>
+        <!-- /products/delete/{{_id}}?_method=DELETE -->
+        <form action="" method="POST">
+          <input type="hidden" name="_method" value="DELETE">
+          <button class="btn btn-primary btn-block btn-sm" type="submit">
+            Agregar a la Lista
+          </button>
+        </form>
+      </div>
+    </div>
   </div>
-</div>
-</div>
-{{/each}}
-</div>
-{{else}}
-<div class="card border-danger mb-3 mx-auto" style="max-width: 18rem;">
-  <div class="card-header">No hay productos</div>
-  <div class="card-body text-dark">
-    <p class="card-text">Te pedimos una disculpa, por el momento no tenemos productos que mostrarte</p>
+  {{else}}
+  <div class="card border-danger mb-3 mx-auto" style="max-width: 18rem;">
+    <div class="card-header">No hay productos</div>
+    <div class="card-body text-dark">
+      <p class="card-text">Te pedimos una disculpa, por el momento no tenemos productos que mostrarte</p>
+    </div>
   </div>
+  {{/each}}
 </div>
 {{/if}}
-

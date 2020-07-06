@@ -4,9 +4,17 @@ const { Schema } = moongose;
 const bcrypt = require('bcryptjs');
 
 const UserSchema = new Schema({
-    name: {type: String, required: true},
+    role: {type: String, default: "buyer"},
+    first_name: {type: String, required: true},
+    last_name: {type: String, required: true},
     email: {type: String, required: true},
     password: {type: String, required: true},
+    street: {type: String, required: true},
+    number_ext: {type: String, required: true},
+    suburb: {type: String, required: true},
+    zip_code: {type: String, required: true},
+    city: {type: String, required: true},
+    state: {type: String, required: true},
     date: {type: Date, default: Date.now}
 });
 

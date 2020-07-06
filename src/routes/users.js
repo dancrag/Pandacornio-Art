@@ -3,7 +3,7 @@ const { route } = require('.');
 const router = express.Router();
 const User = require('../models/User');
 const passport = require('passport');
-
+const { session } = require('passport');
 
 router.get('/users/signin', (req, res) => {
     res.render('users/signin');
@@ -20,9 +20,9 @@ router.get('/users/signup', (req, res) => {
 });
 
 router.post('/users/signup', async (req, res) => {
-    const {name, email, password, confirm_password} = req.body;
+    const {first_name, last_name, email, password, confirm_password, street, number_ext, suburb, zip_code, city, state} = req.body;
     const errors = [];
-    if (name.length <= 0 || email.length <= 0 || password.length <= 0 || confirm_password <= 0) {
+    if (first_name.length <= 0 || email.length <= 0 || password.length <= 0 || confirm_password <= 0) {
         errors.push({text: 'Alguno de los campos están vacío'})
     }
     if (password != confirm_password) {
@@ -32,20 +32,20 @@ router.post('/users/signup', async (req, res) => {
         errors.push({text: 'La contraseña debe ser mayor a 4 caracteres'});
     }
     if (errors.length > 0) {
-        res.render('users/signup', {errors, name, email, password, confirm_password});
+        res.render('users/signup', {errors, first_name, email, password, confirm_password});
     } else {
         const emailUser = await User.findOne({email: email});
         if (emailUser) {
             req.flash('error_msg', 'El email ya está registrado');
             res.redirect('/users/signup');
         }
-        const newUser = new User({name, email, password});
+        const newUser = new User({first_name, last_name, email, password, street, number_ext, suburb, zip_code, city, state});
         newUser.password = await newUser.encryptPassword(password);
         await newUser.save();
         req.flash('success_msg', 'Te has registrado correctamente');
         res.redirect('/users/signin');
     }
-    console.log(req.body);
+    console.log('Registro correcto');
     
 })
 
