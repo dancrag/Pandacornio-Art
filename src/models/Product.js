@@ -3,7 +3,7 @@ const { Schema } = mongoose;
 
 const ProductSchema = new Schema({
     name: {type: String, required: true},
-    url: {type: String, required: false},
+    imgFile: {type: String, required: false, default: 'logo.png'},
     price: {type: Number, required: true},
     description: {type: String, required: true},
     date: {type: Date, default: Date.now}

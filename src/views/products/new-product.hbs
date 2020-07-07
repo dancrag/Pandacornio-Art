@@ -1,10 +1,9 @@
 <div class="col-md-4 mx-auto animate__animated animate__flipInY">
     <div class="card">
-        <div class="card-header">
-            <h3>Nuevo Producto</h3>
-        </div>
+        <img id="img-preview" class="card-img-top">
         <div class="card-body">
-            <form action="/products/new-product" method="POST">
+            <h3 class="card-title">Nuevo Producto</h3>
+            <form action="/products/new-product" method="POST" enctype="multipart/form-data">
                 <div class="form-group">
                     <input type="text" name="name" id="name" class="form-control" placeholder="Nombre" autofocus
                         required>
@@ -12,12 +11,18 @@
                 <div class="input-group mb-3">
                     <div class="input-group-prepend">
                         <span class="input-group-text">$</span>
-                        <span class="input-group-text">0.00</span>
                     </div>
-                    <input type="text" name="price" id="price" class="form-control" placeholder="Precio" aria-label="Dollar amount (with dot and two decimal places)" required>
+                    <input type="text" name="price" id="price" class="form-control" placeholder="Precio"
+                        aria-label="Dollar amount (with dot and two decimal places)" required>
                 </div>
                 <div class="form-group">
                     <textarea name="description" class="form-control" placeholder="Descripción"></textarea>
+                </div>
+                <div class="form-group">
+                    <div class="custom-file">
+                        <input type="file" class="custom-file-input" id="inputGroupFile03" aria-describedby="inputGroupFileAddon03" name="imgFile" required>
+                        <label class="custom-file-label" for="inputGroupFile03">Elegir Archivo</label>
+                    </div>
                 </div>
                 <div class="form-group">
                     <button class="btn btn-primary btn-block" type="submit">

@@ -6,7 +6,15 @@ const session = require('express-session');
 const flash = require('connect-flash');
 const passport = require('passport');
 const Handlebars = require('handlebars');
-const {allowInsecurePrototypeAccess} = require('@handlebars/allow-prototype-access')
+const {allowInsecurePrototypeAccess} = require('@handlebars/allow-prototype-access');
+const multer = require('multer');
+
+const storage = multer.diskStorage({
+  destination: path.join(__dirname, 'public/img'),
+  filename: (req, file, cb) => {
+    cb(null, file.originalname);
+  }
+});
 
 //initializations
 const app = express();
@@ -39,6 +47,11 @@ app.use(session({
 app.use(passport.initialize());
 app.use(passport.session());
 app.use(flash());
+app.use(multer({
+  storage, 
+  dest: path.join(__dirname, 'public/img'),
+  limits: {fileSize: 1000000}
+}).single('imgFile'));
 
 //global variables
 app.use((req, res, next) => {
