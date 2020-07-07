@@ -11,7 +11,7 @@ router.get('/products/add-product', isAuthenticated, (req, res) => {
 
 router.post('/products/new-product', isAuthenticated, async (req, res) => {
     const { name, price, description } = req.body;
-    const imgFile = req.file.originalname;
+    const imgFile = req.file.filename;
     const errors = [];
 
     if (!name) {
@@ -46,10 +46,10 @@ router.get('/products/edit-product/:id', isAuthenticated, async (req, res) => {
 
 router.put('/products/edit-product-done/:id', isAuthenticated, async (req, res) => {
     const { name, price, description } = req.body;
-    const imgFile = req.file.originalname;
+    const imgFile = req.file.filename;
     await Product.findByIdAndUpdate(req.params.id, { name, imgFile, price, description });
     req.flash('success_msg', '¡Se actualizó correctamente el producto!');
-    res.redirect('/products');
+    res.redirect('/products'); 
 });
 
 router.delete('/products/delete/:id', isAuthenticated, async (req, res) => {

@@ -4,7 +4,7 @@
             <h3>Editar Producto</h3>
         </div>
         <div class="card-body">
-            <form action="/products/edit-product-done/{{product._id}}?_method=PUT" method="POST">
+            <form action="/products/edit-product-done/{{product._id}}?_method=PUT" method="POST" enctype="multipart/form-data">
                 <input type="hidden" name="_method" value="PUT">
                 <div class="form-group">
                     <input type="text" name="name" class="form-control" placeholder="Nombre" value="{{product.name}}">
