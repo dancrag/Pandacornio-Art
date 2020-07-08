@@ -11,7 +11,7 @@ router.get('/', async (req, res) => {
 });
 
 router.get('/contact', (req, res) => {
-  res.render('contact');
+  res.render('contact/contact');
 });
 
 router.get('/products', async (req, res) => {

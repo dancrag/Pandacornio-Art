@@ -37,6 +37,7 @@ app.engine('.hbs', exphbs({
 app.set('view engine', '.hbs');
 
 //middleware
+app.use(express.json());
 app.use(express.urlencoded({extended: false}));
 app.use(methodOverride('_method'));
 app.use(session({
@@ -67,6 +68,7 @@ app.use((req, res, next) => {
 app.use(require('./routes/index'));
 app.use(require('./routes/users'));
 app.use(require('./routes/products'));
+app.use(require('./routes/contact'));
 
 
 //static files
