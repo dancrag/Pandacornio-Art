@@ -2,7 +2,7 @@
 <div class="row row-cols-1 row-cols-md-3">
   {{#each products}}
   <div class="col mb-4">
-    <div class="card animate__animated animate__fadeInLeft">
+    <div class="card animate__animated animate__slideInDown">
       <img src="img/{{imgFile}}" class="card-img-top" alt="...">
       <div class="card-body">
         <h5 class="card-title d-flex justify-content-between align-items-center"> {{name}} <a
@@ -33,7 +33,7 @@
 <div class="row row-cols-1 row-cols-md-3">
   {{#each products}}
   <div class="col mb-4">
-    <div class="card animate__animated animate__fadeInLeft">
+    <div class="card animate__animated animate__slideInDown">
       <img src="img/{{imgFile}}" class="card-img-top" alt="...">
       <div class="card-body">
         <h5 class="card-title d-flex justify-content-between align-items-center"> {{name}}</h5>
@@ -42,12 +42,7 @@
       <div class="card-footer">
         <p><i class="fas fa-dollar-sign"></i> {{price}}</p>
         <!-- /products/delete/{{_id}}?_method=DELETE -->
-        <form action="" method="POST">
-          <input type="hidden" name="_method" value="DELETE">
-          <button class="btn btn-primary btn-block btn-sm" type="submit">
-            Agregar a la Lista
-          </button>
-        </form>
+        <a href="/products/wishlist-done/{{_id}}" class="btn btn-primary btn-block btn-sm">Agregar al Carrito</a>
       </div>
     </div>
   </div>

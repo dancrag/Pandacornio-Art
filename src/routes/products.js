@@ -2,6 +2,8 @@ const express = require('express');
 const { route } = require('.');
 const router = express.Router();
 
+const Wishlist = require('../models/Wishlist');
+
 const Product = require('../models/Product');
 const { isAuthenticated } = require('../helpers/auth')
 
@@ -55,6 +57,15 @@ router.put('/products/edit-product-done/:id', isAuthenticated, async (req, res) 
 router.delete('/products/delete/:id', isAuthenticated, async (req, res) => {
     await Product.findByIdAndDelete(req.params.id);
     req.flash('success_msg', 'El producto se eliminó correctamente');
+    res.redirect('/products');
+});
+
+router.get('/products/wishlist', (req, res) => {
+    res.render('products/wishlist');
+});
+
+router.get('/products/wishlist-done/:id', async (req, res) => {
+    req.flash('error', 'Lo sentimos, por el momento esta funcionalidad no se encuentra disponible');
     res.redirect('/products');
 });
 
